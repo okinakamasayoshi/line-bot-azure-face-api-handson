@@ -1,18 +1,25 @@
-'use strict';
+"use strict";
 
-// ########################################
-//               初期設定など
-// ########################################
-const fs = require('fs');
-const express = require('express');
-const line = require('@line/bot-sdk');
+const express = require("express");
+const line = require("@line/bot-sdk");
+const PORT = process.env.PORT || 5000;
 
-const PORT = process.env.PORT || 3000;
+const config = {
+  channelSecret: "26edefbe0a1f0605c8cb67c713b8c079", 
+  channelAccessToken: "UWVFuJi63z+uvypgoDQK3iMTdNtY6uk6XrNe/zsMqRuh1VW+2vjJrKJNVG04PhJHsmVrpPd2W9GzWJtGJTsBBbNzH+gIt+k2I1MXVQCpYte8L8SVZQqIk6M7LVmHqH8KhirIu65vrtHevulGU3mQRgdB04t89/1O/w1cDnyilFU="
+};
 
+const app = express();
 
-const client = new line.Client({
-  channelAccessToken: 'UWVFuJi63z+uvypgoDQK3iMTdNtY6uk6XrNe/zsMqRuh1VW+2vjJrKJNVG04PhJHsmVrpPd2W9GzWJtGJTsBBbNzH+gIt+k2I1MXVQCpYte8L8SVZQqIk6M7LVmHqH8KhirIu65vrtHevulGU3mQRgdB04t89/1O/w1cDnyilFU='
+app.post("/webhook", line.middleware(config), (req, res) => {
+  console.log(req.body.events);
+
+  Promise.all(req.body.events.map(handleEvent)).then((result) =>
+    res.json(result)
+  );
 });
+
+const client = new line.Client(config);
 
 client.getMessageContent('<messageId>')
   .then((stream) => {
@@ -55,21 +62,27 @@ client.getMessageContent('<messageId>')
     }
   );
 
-  const line = require('@line/bot-sdk');
+  const message = {
+    type: 'text',
+    text: '保存に成功したよ！https://drive.google.com/uc?id=1T4QABnxnU_gNt6ORxNvnKU9EiiFxn795'
+  };
+  
+  client.replyMessage('<replyToken>', message)
+    .then(() => {
+      
+    })
+    .catch((err) => {
+      // error handling
+    });
 
-const client = new line.Client({
-  channelAccessToken: '<channel access token>'
-});
+async function handleEvent(event) {
+  if (event.type !== "message" || event.message.type !== "text") {
+    return Promise.resolve(null);
+  };
 
-const message = {
-  type: 'text',
-  text: '保存に成功したよ！https://drive.google.com/uc?id=1T4QABnxnU_gNt6ORxNvnKU9EiiFxn795'
-};
+  let mes = { type: "text", text: event.message.text };
+  return client.replyMessage(event.replyToken, mes);
+}
 
-client.replyMessage('<replyToken>', message)
-  .then(() => {
-    
-  })
-  .catch((err) => {
-    // error handling
-  });
+app.listen(PORT);
+console.log(`Server running at ${PORT}`);

@@ -14,8 +14,8 @@ const PORT = process.env.PORT || 3000;
 // LINE Botパラメータ
 // 1. オウム返しBotを作ろう で設定します
 const config = {
-  channelSecret: 'チャネルシークレットを記入する',
-  channelAccessToken: 'チャネルアクセストークンを記入する',
+  channelSecret: '26c01e9c0ec094ac8ca726795849e5ca',
+  channelAccessToken: 'oh/GWAj8j2EehGeXCGJ0Vim1Z3WFL20Cox2p5NUhAjLQ1iXER2L44X2FBZ284RN+GfjAWLtlQRt9X27S2exbWuUpqdKBix9O8qpiPQnWlUwiz18UBGK79oRvrs11YWgLH4VudCMDr428f/MlbsP2CgdB04t89/1O/w1cDnyilFU=',
 };
 const lineClient = new line.Client(config);
 
