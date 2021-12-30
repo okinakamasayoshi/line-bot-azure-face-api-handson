@@ -1,7 +1,7 @@
 "use strict";
 
 const { google } = require("googleapis");
-const privatekey = require("./MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCvgv002/8PR6Hv\nDmAJEHfTHpcENwN6LNmwH0diYzaHVFh7R02R96eXSep2hzbSOLjBxxICiWcNsh+S\nXCewmqodcrszUrLiyfy3UqkLWsYBOLpU3f77EV3VHd8OZZheKZPtUd7shKZpQycu\nakqIGbiiTO/RHlowdyMz2pBXiKHV2HwA/BJhHzWKHauq5fcHiooW4xYsIbpGnSsw\nB8sHnuK+HgNJ0YfPDU1Jo31Jjt62pvI6U3Faz0eGozPX7836i70DAzbL6oC8TR0G\nmx8RI1ynXbhv70sCQkCoQrGkGyxXDogUqFM31C3wJ2f5SSDH/xnutu+Sq5rgpIrM\nTkqIplg3AgMBAAECggEAMZWNGWjppxRysEncYdMwNwnWWk98gQC4w2Qi06350sPG\nd5WOWaWgyEIOpkvO9hcmQ0CNWwAciCcBemTkpaUcWFN4hahgd2ffKJ+GuHl9pQy0\nv5M0HRQr8TCOOtAC+t8+NnbBxwo2xVg+coN+6PJzUg7wVaEAk96kqFqgGsq0Bei5\nj6s5Gze8Ujx6E+j6rK+Idz+MYu4vOdxL/Sk1Y6GlahPtTaZzGcAChLqdmvzuC88Q\nZQpMX9QWC7xsQ49Kc8P6/C7HtJjp9m8RjiWaVsC5CagVkT1vPJDu4L1z3C8z6jZe\nSbg5Mq/HAZq/FcmvMd88mkMhtcUJVhkaTatTVPCWEQKBgQDuV6GOGM5cinurkSsh\njqC79rdgWo01Dy0uYUWcrSC/EdHEg2AGlTDUmEtMOu/bwcXGMjbtlwIvvh9a3ojX\nlsELv0agXR1cSBJSYBNRG1cJj4Czsz/AmHZL6LpBRHCtMSFx2kxqhdsvty9hjcQo\nJUCSSWBHo2OcjFBL1POTNO4+3wKBgQC8g7hxsYLPQ9eks361JnngZMc8t+yCyE49\nIvlJUU+1eof1B6AhsfGmb1IMSKTjLDnd84ccvatpuOmAPDRtDJTMuNZuXzJDOi9e\n9zv8hfewEnEOnl0nsO6usXPwiagW50mfHEBah/QvhePJhSg8fTZ7rc3Xhv2QMs6p\nT1omMvcJqQKBgGQEpikpQ8AV5Rv0SXNFlTILsJxgo402lzE1ZK8BABLueWbL8soQ\nZXNxjXep6+n+gO5RODev/Rzn3eSWKjq+arhxRkQZjy6gl/+1jaWloXrDm7DNcd1y\nnYHxYeftvpMPYQeUIik5jueRKfL4OO7X4ycAX8TwTebuAuwvqx+FQM1lAoGAU3da\nvfQjf9OA8iqLKnfLtJ/KW0bwEAPSKF2I1H6M9UQ4WDQ1IVYhMVjOkiPD5dWaFXyS\n0RXlhFzb/ewqJjJQ28fnIV1C6uMjQD/lLmy+exXfOuLBSiabt3tYYyL/6owjW7Bt\niefyJOx6K6qqYwXpjp8oqYnaUPM971b0Cj+8g2kCgYEAivuT2QayFZNITZFrXq71\n6QCjdhjnHM+QErIVuL6FWvY9pyHBO2C9vfvyIA7oNrjVqGLZfatTqDzVBH2QM370\noLyLoFdbMu/xxjKgCWXN5XNTg16YftQ+ycv8rlaXCOANPM7IrbphW8BTsl3k/tB5\nu3A8ZXMqDc8HIcCQ1HxAoDk=");
+const privatekey = require("1MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCvgv002/8PR6Hv1DmAJEHfTHpcENwN6LNmwH0diYzaHVFh7R02R96eXSep2hzbSOLjBxxICiWcNsh+S1XCewmqodcrszUrLiyfy3UqkLWsYBOLpU3f77EV3VHd8OZZheKZPtUd7shKZpQycu1akqIGbiiTO/RHlowdyMz2pBXiKHV2HwA/BJhHzWKHauq5fcHiooW4xYsIbpGnSsw1B8sHnuK+HgNJ0YfPDU1Jo31Jjt62pvI6U3Faz0eGozPX7836i70DAzbL6oC8TR0G1mx8RI1ynXbhv70sCQkCoQrGkGyxXDogUqFM31C3wJ2f5SSDH/xnutu+Sq5rgpIrM1TkqIplg3AgMBAAECggEAMZWNGWjppxRysEncYdMwNwnWWk98gQC4w2Qi06350sPG1d5WOWaWgyEIOpkvO9hcmQ0CNWwAciCcBemTkpaUcWFN4hahgd2ffKJ+GuHl9pQy01v5M0HRQr8TCOOtAC+t8+NnbBxwo2xVg+coN+6PJzUg7wVaEAk96kqFqgGsq0Bei51j6s5Gze8Ujx6E+j6rK+Idz+MYu4vOdxL/Sk1Y6GlahPtTaZzGcAChLqdmvzuC88Q1ZQpMX9QWC7xsQ49Kc8P6/C7HtJjp9m8RjiWaVsC5CagVkT1vPJDu4L1z3C8z6jZe1Sbg5Mq/HAZq/FcmvMd88mkMhtcUJVhkaTatTVPCWEQKBgQDuV6GOGM5cinurkSsh1jqC79rdgWo01Dy0uYUWcrSC/EdHEg2AGlTDUmEtMOu/bwcXGMjbtlwIvvh9a3ojX1lsELv0agXR1cSBJSYBNRG1cJj4Czsz/AmHZL6LpBRHCtMSFx2kxqhdsvty9hjcQo1JUCSSWBHo2OcjFBL1POTNO4+3wKBgQC8g7hxsYLPQ9eks361JnngZMc8t+yCyE491IvlJUU+1eof1B6AhsfGmb1IMSKTjLDnd84ccvatpuOmAPDRtDJTMuNZuXzJDOi9e19zv8hfewEnEOnl0nsO6usXPwiagW50mfHEBah/QvhePJhSg8fTZ7rc3Xhv2QMs6p1T1omMvcJqQKBgGQEpikpQ8AV5Rv0SXNFlTILsJxgo402lzE1ZK8BABLueWbL8soQ1ZXNxjXep6+n+gO5RODev/Rzn3eSWKjq+arhxRkQZjy6gl/+1jaWloXrDm7DNcd1y1nYHxYeftvpMPYQeUIik5jueRKfL4OO7X4ycAX8TwTebuAuwvqx+FQM1lAoGAU3da1vfQjf9OA8iqLKnfLtJ/KW0bwEAPSKF2I1H6M9UQ4WDQ1IVYhMVjOkiPD5dWaFXyS10RXlhFzb/ewqJjJQ28fnIV1C6uMjQD/lLmy+exXfOuLBSiabt3tYYyL/6owjW7Bt1iefyJOx6K6qqYwXpjp8oqYnaUPM971b0Cj+8g2kCgYEAivuT2QayFZNITZFrXq7116QCjdhjnHM+QErIVuL6FWvY9pyHBO2C9vfvyIA7oNrjVqGLZfatTqDzVBH2QM3701oLyLoFdbMu/xxjKgCWXN5XNTg16YftQ+ycv8rlaXCOANPM7IrbphW8BTsl3k/tB51u3A8ZXMqDc8HIcCQ1HxAoDk=");
 exports.handler = async (event) => {
   const res = await Promise.resolve()
     .then(function () {
@@ -48,16 +48,6 @@ exports.handler = async (event) => {
 };
 
 
-
-
-
-
-
-
-
-
-
-
 const express = require("express");
 const line = require("@line/bot-sdk");
 const PORT = process.env.PORT || 5000;
@@ -80,9 +70,6 @@ app.post("/webhook", line.middleware(config), (req, res) => {
 const client = new line.Client(config);
 
 async function handleEvent(event) {
-  if (event.type !== "message" || event.message.type !== "text") {
-    return Promise.resolve(null);
-  };
 
   client.getMessageContent('<messageId>')
   .then((stream) => {
