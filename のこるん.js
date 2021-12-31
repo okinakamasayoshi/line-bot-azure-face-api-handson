@@ -48,6 +48,7 @@ exports.handler = async (event) => {
 };
 
 
+
 const express = require("express");
 const line = require("@line/bot-sdk");
 const PORT = process.env.PORT || 5000;
@@ -80,6 +81,13 @@ async function handleEvent(event) {
       // error handling
     });
   });
+
+//ここに入れます。12/31
+
+const jwtClient = new google.auth.JWT
+
+//ここまで入れました
+
 
   const drive = google.drive({ version: "v3", auth: jwtClient });
 
